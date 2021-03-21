@@ -1,7 +1,7 @@
 <template>
-	<template v-if="modelValue">
-		<div @click="closeModal" id="overlay"></div>
-		<dialog open>
+	<div v-if="modelValue" @click="closeModal" id="overlay"></div>
+	<transition name="modal">
+		<dialog open v-if="modelValue">
 			<slot>
 				<header>
 					<h2>Delete App</h2>
@@ -19,7 +19,7 @@
 				</div>
 			</slot>
 		</dialog>
-	</template>
+	</transition>
 </template>
 
 <script>
@@ -87,4 +87,35 @@ main {
 	color: white;
 	margin-left: 10px;
 }
+
+/* fatel */
+.modal-enter-from,
+.modal-leave-to {
+	transform: translateY(-20px);
+	opacity: 0;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+	transition: 0.3s all ease-in-out;
+}
+
+.modal-enter-to,
+.modal-leave-from {
+	transform: translateY(0px);
+	opacity: 1;
+}
+/* .modal-leave-from {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+.modal-leave-active {
+	transition: 0.3s all ease-in-out;
+}
+
+.modal-leave-to {
+	transform: translateY(-20px);
+	opacity: 0;
+} */
 </style>
