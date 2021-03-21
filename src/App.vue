@@ -1,26 +1,58 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<div class="container">
+		<button class="btn" @click="openDialog">Open Modal</button>
+	</div>
+
+	<teleport to="body">
+		<base-modal v-model="dialog"> </base-modal>
+	</teleport>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BaseModal from '@/components/UI/BaseModal'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	data() {
+		return {
+			dialog: false,
+		}
+	},
+	methods: {
+		openDialog() {
+			this.dialog = true
+		},
+	},
+	components: {
+		BaseModal,
+	},
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	color: white;
+	background: #101024;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.btn {
+	border: none;
+	background-color: #f3bc17;
+	color: #101024;
+	padding: 0.5rem 1.8rem;
+	cursor: pointer;
+	outline: none;
+	font-size: 0.8rem;
 }
 </style>
