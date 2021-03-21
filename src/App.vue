@@ -50,7 +50,7 @@ body {
 	border: none;
 	background-color: #f3bc17;
 	color: #101024;
-	padding: 0.5rem 1.8rem;
+	padding: 0.7rem 1.8rem;
 	cursor: pointer;
 	outline: none;
 	font-size: 0.8rem;
