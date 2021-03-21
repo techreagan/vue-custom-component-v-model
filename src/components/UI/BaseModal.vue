@@ -118,4 +118,10 @@ main {
 	transform: translateY(-20px);
 	opacity: 0;
 } */
+
+@media (max-width: 700px) {
+	dialog {
+		width: 80%;
+	}
+}
 </style>
